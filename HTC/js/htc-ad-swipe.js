@@ -14,9 +14,9 @@
 			curImgSrc="image/"+aryBookSrc[index];
 			curBook=aryBookName[index];
 			curHref=aryhrefName[index];
-			$("#pimg").attr("src",curImgSrc);
-			$("#pname").text(curBook);
-			$("#ca").attr("href",curHref);//dialog更換圖片
+			$("#adspimg").attr("src",curImgSrc);
+			$("#adspname").text(curBook);
+			$("#adsca").attr("href",curHref);//dialog更換圖片
 		}
 		function shownext(){	//定義方法
 			index++;
@@ -24,9 +24,9 @@
 			curImgSrc="image/"+aryBookSrc[index]; //圖片路徑名稱
 			curBook=aryBookName[index]; //圖片文字內容
 			curHref=aryhrefName[index];
-			$("#pimg").attr("src",curImgSrc); //取代id為pimg之src的文字內容
-			$("#pname").text(curBook); //取代id為pname的文字by陣列
-			$("#ca").attr("href",curHref);//dialog更換圖片
+			$("#adsimg").attr("src",curImgSrc); //取代id為pimg之src的文字內容
+			$("#adsname").text(curBook); //取代id為pname的文字by陣列
+			$("#adsa").attr("href",curHref);//dialog更換圖片
 		}
 
 
