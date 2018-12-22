@@ -14,7 +14,8 @@
 			curImgSrc="image/"+aryBookSrc[index];
 			curBook=aryBookName[index];
 			curHref=aryhrefName[index];
-			$("#adsimg").attr("src",curImgSrc);
+			$("#adsimg").fadeOut(800);
+			$("#adsimg").attr("src",curImgSrc).fadeIn(500);
 			$("#adsname").text(curBook);
 			$("#adsca").attr("href",curHref);//dialog更換圖片
 		}
@@ -24,7 +25,8 @@
 			curImgSrc="image/"+aryBookSrc[index]; //圖片路徑名稱
 			curBook=aryBookName[index]; //圖片文字內容
 			curHref=aryhrefName[index];
-			$("#adsimg").attr("src",curImgSrc); //取代id為pimg之src的文字內容
+			$("#adsimg").fadeOut(800);
+			$("#adsimg").attr("src",curImgSrc).fadeIn(500); //取代id為pimg之src的文字內容
 			$("#adsname").text(curBook); //取代id為pname的文字by陣列
 			$("#adsca").attr("href",curHref);//dialog更換圖片
 		}
