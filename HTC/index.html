@@ -11,6 +11,7 @@
 	<script src="js/jquery.mobile-1.4.5.min.js"></script>
 	<script src="js/jason.js"></script>	
 	<script src="js/ad.js"></script>
+	<script src="js/htc-ad-swipe.js"></script>
 
 	<script>
 		$( document ).on( "pagecreate", "#home", function() {
@@ -25,17 +26,6 @@
 		    });
 		});
 
-		$( document ).on( "pagecreate", "#product", function() {
-		    $( document ).on( "swipeleft swiperight", "#product", function( e ) {
-		        if ( $( ".ui-page-active" ).jqmData( "panel" ) !== "open" ) {
-		            if ( e.type === "swipeleft" ) {
-		                $( "#rightpanel2" ).panel( "open" );
-		            } else if ( e.type === "swiperight" ) {
-		                $( "#leftpanel2" ).panel( "open" );
-		            }
-		        }
-		    });
-		});
 	</script>
 
 	<style>
@@ -123,9 +113,9 @@
 	
 	<div data-role="page" id="product">
 			<div data-role="header" data-theme="b" >
-				<a href="#" data-icon="arrow-l" data-iconpos="notext" id="showprev">Back</a>
+				<a href="#leftpanel2" data-icon="arrow-l" data-iconpos="notext" id="showprev">Back</a>
 				<h3>New Product</h3>
-				<a href="#" data-icon="arrow-r" data-iconpos="notext" id=shownext>Next</a>
+				<a href="#rightpanel2" data-icon="arrow-r" data-iconpos="notext" id=shownext>Next</a>
 			</div>
 
 			<div data-role="panel" id="leftpanel2" data-display="overlay">
@@ -140,7 +130,7 @@
 			<div data-role="panel" id="rightpanel2" data-position="right" data-display="reveal">
 				<img src="image/htc.jpg" alt="" width="100%" class="logob_01">
 				<div class="ptext">
-					<h3>宏達電國際股份有限公司</h3>
+					<h4>宏達電國際股份有限公司</h4>
 					<h3>0422528728</h3>
 				</div>
 			</div>
