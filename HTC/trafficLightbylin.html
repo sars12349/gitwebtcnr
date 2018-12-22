@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<link rel="stylesheet" href="css/jquery.mobile-1.4.5.min.css">
+	<script src="js/jquery-2.1.0.min.js"></script>
+	<script src="js/jquery.mobile-1.4.5.min.js"></script>
+	<style>
+		.ui-grid-b{
+			background-color: black;
+		}
+		.ui-grid-b div{
+			background-color: black;
+			margin: 0 auto 0 auto;
+			width: 200px;
+			height: 200px;
+		}
+		.ui-grid-b div div{
+			border-radius: 100px;
+			margin: 10 auto 10 auto;
+			background-color: white;
+		}
+		.test{
+			width: 100px;
+			height: 100px;
+		}
+		@-webkit-keyframes scaleUp{
+			from{
+				transform: scale(0.3);
+				left: 0;
+			}
+			to{
+				transform: scale(1.0);
+				left: 100px;
+			}
+		}
+	</style>
+	<script>
+		$(function(){
+			setInterval(trafficLight, 1000);
+					$("#light-r").css({"background-color":"black"});
+					$("#light-y").css({"background-color":"black"});
+					$("#light-g").css({"background-color":"black"});
+
+		});
+		var num=0;
+		function trafficLight(){
+
+			var arrayColor=new Array("red", "yellow", "green");
+			switch(num){
+
+				// case 0:
+				// 	$("#light-r").css("background-color", arrayColor[num]);
+				// 	$("#light-y").css("background-color", "black");
+				// 	$("#light-g").css("background-color", "black");
+				// 	num++;
+				// 	break;
+				// case 1:
+				// 	$("#light-r").css("background-color", "black");
+				// 	$("#light-y").css("background-color", arrayColor[num]);
+				// 	$("#light-g").css("background-color", "black");
+				// 	num++;
+				// 	break;
+				// case 2:
+				// 	$("#light-r").css("background-color", "black");
+				// 	$("#light-y").css("background-color", "black");
+				// 	$("#light-g").css("background-color", arrayColor[num]);
+				// 	num=0;
+				// 	break;
+				case 0:
+					$("#light-r").css({"background-color":arrayColor[num] ,"animation":"scaleUp 3s infinite" });
+					$("#light-y").css({"background-color":"black"});
+					$("#light-g").css({"background-color":"black"});
+					num++;
+					break;
+				case 1:
+					$("#light-r").css({"background-color":"black"});
+					$("#light-y").css({"background-color":arrayColor[num] ,"animation":"scaleUp 3s infinite" });
+					$("#light-g").css({"background-color":"black"});
+					num++;
+					break;
+				case 2:
+					$("#light-r").css({"background-color":"black"});
+					$("#light-y").css({"background-color":"black"});
+					$("#light-g").css({"background-color":arrayColor[num] ,"animation":"scaleUp 3s infinite" });
+					num=0;
+					break;
+				}
+			}
+	</script>
+
+</head>
+<body>
+	<div data-role="page" id="home">
+		<div role="content" class="ui-cintent">
+			<div class="ui-grid-b">
+				<div class="ui-block-a">
+					<div id="light-r"></div>
+				</div>
+				<div class="ui-block-b">
+					<div id="light-y"></div>
+				</div>
+				<div class="ui-block-c">
+					<div id="light-g"></div>
+				</div>
+			</div>
+			<div class="test" background-color="red"></div>
+		</div>	
+	</div>
+
+</body>
+</html>
