@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+
+	<meta charset="UTF-8">
+	<meta name="viewport" content="device-width,initial-scale=1">
+	<title>Document</title>
+	<link rel="stylesheet" href="css/jquery.mobile-1.4.5.min.css">
+	<script src="js/jquery-2.1.0.min.js"></script>
+	<script src="js/jquery.mobile-1.4.5.min.js"></script>
+	<script>
+		$( document ).on( "pagecreate", "#home", function() {
+		    $( document ).on( "swipeleft swiperight", "#home", function( e ) {
+		        // We check if there is no open panel on the page because otherwise
+		        // a swipe to close the left panel would also open the right panel (and v.v.).
+		        // We do this by checking the data that the framework stores on the page element (panel: open).
+		        if ( $( ".ui-page-active" ).jqmData( "panel" ) !== "open" ) {
+		            if ( e.type === "swipeleft" ) {
+		                $( "#rightpanel" ).panel( "open" );
+		            } else if ( e.type === "swiperight" ) {
+		                $( "#leftpanel" ).panel( "open" );
+		            }
+		        }
+		    });
+		});
+	</script>
+</head>
+<body>
+	<div data-role="page" id="home">
+		<div data-role="panel" id="leftpanel" data-display="overlay">
+			
+		</div>
+		<div data-role="panel" id="rightpanel" data-position="right" data-display="reveal">
+			
+		</div>
+		<div data-role="header">
+			
+		</div>
+
+		<div data="main" class="ui-content">
+			<div class="ui-grid-a">
+				<div class="ui-block-a">
+					<a href="#leftpanel" data-role="button" data-icon="arrow-r" data-iconpos="right" data-theme="b">LeftPanel</a>
+				</div>
+				<div class="ui-block-b">
+					<a href="#rightpanel" data-role="button" data-icon="arrow-l" data-iconpos="left" data-theme="b">RightPanel</a>
+				</div>
+			</div>
+			
+			
+			
+		</div>
+
+		<div data-role="footer" data-position="fixed">
+			
+		</div>
+	</div>	
+</body>
+</html>
