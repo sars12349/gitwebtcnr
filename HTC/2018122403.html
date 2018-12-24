@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+
+	<meta charset="UTF-8">
+	<meta name="viewport" content="device-width,initial-scale=1">
+	<title>Document</title>
+	<link rel="stylesheet" href="css/jquery.mobile-1.4.5.min.css">
+	<script src="js/jquery-2.1.0.min.js"></script>
+	<script src="js/jquery.mobile-1.4.5.min.js"></script>
+
+	<script>
+			function set_color(){
+				var red=$("#red").val();
+				var green=$("#green").val();
+				var blue=$("#blue").val();
+				var color="RGB("+red+","+green+","+blue+")";
+				$("#div").css("background-color",color);
+			}
+
+			function set_light(){
+				var s=$("#light").val();
+				$("#div").css("background-color",s);
+			}
+
+			function weather_choose(){
+				var w=$("#selectmenu").val();
+				$("#weather").text(w);
+			}
+
+
+	</script>
+
+</head>
+<body>
+	<div data-role="page"  id="div" >
+		<div data-role="header">
+			
+		</div>
+
+		<div data="main" class="ui-content" >
+			
+			<div data-role="fieldcontain">
+				<div id="abc"></div>
+				<label for="light">開關:</label>
+				<select name="light" id="light" data-role="slider" onchange="set_light();">
+					<option value="white">開</option>
+					<option value="black">關</option>
+				</select>				
+			</div>
+
+			<div data-role="content">
+				<input type="range" name="red" id="red" value="0" min="0" max="255" step="1" onchange="set_color();">
+				<input type="range" name="green" id="green" value="0" min="0" max="255" step="1" onchange="set_color();">
+				<input type="range" name="blue" id="blue" value="0" min="0" max="255" step="1" onchange="set_color();">
+			</div>
+
+			<div data-role="fieldcontain">
+				<label for="selectmenu">天氣:</label>
+				<select name="selectmenu" id="selectmenu" onchange="weather_choose();">
+					<option value="sun">晴</option>
+					<option value="cloud">陰</option>
+					<option value="rain">雨</option>
+					<option value="snow">雪</option>
+				</select>				
+			</div>
+			<div id="weather"></div>
+
+		</div>
+
+	</div>	
+</body>
+</html>
