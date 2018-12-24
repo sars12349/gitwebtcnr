@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+
+	<meta charset="UTF-8">
+	<meta name="viewport" content="device-width,initial-scale=1">
+	<title>Document</title>
+	<link rel="stylesheet" href="css/jquery.mobile-1.4.5.min.css">
+	<script src="js/jquery-2.1.0.min.js"></script>
+	<script src="js/jquery.mobile-1.4.5.min.js"></script>
+
+	<script>
+		$(function(){
+			$("#cal_btn").bind("click",calculator);
+		});
+
+		function calculator(){
+			var n=$("#username").val();
+			var a=$("#age").val();
+			var h=$("#height").val();
+			var w=$("#weight").val();
+			var e=w/((h/100)^2);   //BMI
+			$("#profile").text("姓名:"+n+" \r 年齡:"+a+" \r 身高:"+h+" \r 體重:"+w+" BMI:"+e);
+			if(e<18){
+				$("#result").text("體重過輕，請注意飲食均衡");
+			}else if(e>18&&e<30){
+				$("#result").text("恭喜您，體重正常");
+			}else if(e>30){
+				$("#result").text("死胖子，該減肥了");
+			}
+			
+			
+		}
+	</script>
+</head>
+<body>
+	<div data-role="page" id="home">
+		<div data-role="header" data-theme="b">
+			<h1>Bmi身體質量指數</h1>
+		</div>
+
+		<div data="main" class="ui-content">
+
+			<div data-role="fieldcontain">
+				<label for="username">姓名:</label>
+				<input type="text" name="username" id="username">
+			</div>	
+
+			<div data-role="fieldcontain">
+					<label for="age">年齡:</label>
+					<input type="number" name="age" id="age">
+				</div>			
+
+			<div data-role="fieldcontain">
+				<label for="height">身高(cm):</label>
+				<input type="number" name="height" id="height">
+			</div>
+			<div data-role="fieldcontain">
+				<label for="weight">體重(kg):</label>
+				<input type="number" name="weight" id="weight">
+			</div>
+
+			<div id="profile"></div>
+			<div id="result"></div>
+
+			<div class="ui-grid-a">
+				<div class="ui-block-a">
+					<a href="" data-role="button" id="cancel_btn">取消</a>
+				</div>
+				<div class="ui-block-b">
+					<a href="" data-role="button" id="cal_btn">計算</a>
+				</div>
+			</div>
+			
+		</div>
+
+		<div data-role="footer" data-position="fixed">
+			
+		</div>
+	</div>	
+</body>
+</html>
