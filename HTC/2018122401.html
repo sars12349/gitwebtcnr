@@ -10,6 +10,23 @@
 	<script src="js/jquery.mobile-1.4.5.min.js"></script>
 
 	<script>
+		//判斷身高數值
+		$(function(){
+			$("#height").bind("input propertychange",checkheight);
+		});
+
+		function checkheight(){
+			if($("#height").val().length>3){
+				$("#alertheight").text("賣亂，最好是有這麼高");
+				$("#alertheight").css("background-color","green");
+				$("#alertheight").css("color","yellow");
+			}else{
+				$("#alertheight").text("");
+			}
+		}
+
+		// 計算BMI
+
 		$(function(){
 			$("#cal_btn").bind("click",calculator);
 		});
@@ -20,7 +37,7 @@
 			var h=$("#height").val();
 			var w=$("#weight").val();
 			var e=w/((h/100)^2);   //BMI
-			$("#profile").text("姓名:"+n+" \r 年齡:"+a+" \r 身高:"+h+" \r 體重:"+w+" BMI:"+e);
+			$("#profile").text("姓名:"+n+" \r 年齡:"+a+" \r 身高:"+h+" \r 體重:"+w+" \r BMI:"+e);
 			if(e<18){
 				$("#result").text("體重過輕，請注意飲食均衡");
 			}else if(e>18&&e<30){
@@ -32,6 +49,16 @@
 			
 		}
 	</script>
+	<style>
+		.logo{
+			width: 200px;
+			height: ;
+			margin-top: 0;
+			margin-bottom: 0;
+			margin-right: auto;
+			margin-left: auto;
+		}
+	</style>
 </head>
 <body>
 	<div data-role="page" id="home">
@@ -41,23 +68,29 @@
 
 		<div data="main" class="ui-content">
 
+			<div class="logo">
+				<img src="image/KFCXL.jpg" alt="" width="200px">
+			</div>
+
 			<div data-role="fieldcontain">
 				<label for="username">姓名:</label>
 				<input type="text" name="username" id="username">
 			</div>	
-
+			
 			<div data-role="fieldcontain">
-					<label for="age">年齡:</label>
-					<input type="number" name="age" id="age">
-				</div>			
-
+				<label for="age">年齡</label>
+				<input type="range" name="age" id="age" value="1" min="0" max="120" step="1">
+			</div>	
+			
 			<div data-role="fieldcontain">
-				<label for="height">身高(cm):</label>
-				<input type="number" name="height" id="height">
+				<label for="height">身高(cm)</label>
+				<input type="range" name="height" id="height" value="150" min="50" max="250" step="1">
 			</div>
+			<div id="alertheight"></div>
+
 			<div data-role="fieldcontain">
-				<label for="weight">體重(kg):</label>
-				<input type="number" name="weight" id="weight">
+				<label for="weight">體重(kg)</label>
+				<input type="range" name="weight" id="weight" value="60" min="10" max="150" step="1">
 			</div>
 
 			<div id="profile"></div>

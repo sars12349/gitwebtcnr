@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+
+	<meta charset="UTF-8">
+	<meta name="viewport" content="device-width,initial-scale=1">
+	<title>Document</title>
+	<link rel="stylesheet" href="css/jquery.mobile-1.4.5.min.css">
+	<script src="js/jquery-2.1.0.min.js"></script>
+	<script src="js/jquery.mobile-1.4.5.min.js"></script>
+
+	<script>
+		$(function(){
+			$("#start").bind("click",function(){
+				alert($("#light").val());
+			});
+		});
+
+	</script>
+</head>
+<body>
+	<div data-role="page" id="home">
+		<div data-role="header">
+			
+		</div>
+
+		<div data-role="fieldcontain">
+			<label for="light">亮度</label>
+			<input type="range" name="light" id="light" value="1" min="1" max="100" step="5">
+		</div>
+
+		<div data-role="fieldcontain">
+			<label for="age">年齡</label>
+			<input type="range" name="age" id="age" value="11" min="1" max="120" step="5">
+		</div>		
+
+		<div data="main" class="ui-content">
+			<div data-role="fieldcontain">
+				<label for="bd">生日</label>
+				<input type="date" name="bd" id="bd">
+			</div>
+
+			<div data-role="fieldcontain">
+				<label for="bdtext">生日留言</label>
+				<textarea name="textarea" id="bdtext" cols="30" rows="10"></textarea>
+			</div>			
+			<a href="" data-role="button" id="start">執行</a>
+
+			<div id="result"></div>		
+		</div>
+
+		
+
+		<div data-role="footer" data-position="fixed">
+			
+		</div>
+	</div>	
+</body>
+</html>
