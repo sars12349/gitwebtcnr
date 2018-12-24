@@ -1,0 +1,17 @@
+<snippet>
+	<content><![CDATA[
+<div data-role="fieldcontain">
+	<fieldset data-role="controlgroup" data-type="horizontal">
+		<legend>Option</legend>
+		<input type="checkbox" name="checkbox1" id="${1:checkbox1_0}" class="custom" value="" >
+		<label for="${1:checkbox1_0}">Option</label>
+		<input type="checkbox" name="checkbox1" id="${2:checkbox1_1}" class="custom" value="">
+		<label for="${2:checkbox1_1}">Option</label>
+	</fieldset>
+</div>
+]]></content>
+	<!-- Optional: Set a tabTrigger to define how to trigger the snippet -->
+	<tabTrigger>jqm-checkbox</tabTrigger>
+	<!-- Optional: Set a scope to limit where the snippet will trigger -->
+	<!-- <scope>source.python</scope> -->
+</snippet>

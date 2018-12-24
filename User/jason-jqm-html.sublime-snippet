@@ -1,0 +1,37 @@
+<snippet>
+	<content><![CDATA[
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+
+	<meta charset="UTF-8">
+	<meta name="viewport" content="device-width,initial-scale=1">
+	<title>Document</title>
+	<link rel="stylesheet" href="css/jquery.mobile-1.4.5.min.css">
+	<script src="js/jquery-2.1.0.min.js"></script>
+	<script src="js/jquery.mobile-1.4.5.min.js"></script>
+</head>
+<body>
+	<div data-role="page" id="${1:home}">
+		<div data-role="header">
+			
+		</div>
+
+		<div data="main" class="ui-content">
+			
+		</div>
+
+		<div data-role="footer" data-position="fixed">
+			
+		</div>
+	</div>	
+</body>
+</html>
+
+]]></content>
+	<!-- Optional: Set a tabTrigger to define how to trigger the snippet -->
+	<tabTrigger>jqm-html</tabTrigger> -->
+	<!-- Optional: Set a scope to limit where the snippet will trigger -->
+	<!-- <scope>source.python</scope> -->
+</snippet>

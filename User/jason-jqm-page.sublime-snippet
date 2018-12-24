@@ -1,0 +1,23 @@
+<snippet>
+	<content><![CDATA[
+
+<div data-role="page" id="${1:home}">
+		<div data-role="header">
+			
+		</div>
+
+		<div data="main" class="ui-content">
+			
+		</div>
+
+		<div data-role="footer" data-position="fixed">
+			
+		</div>
+</div>	
+
+]]></content>
+	<!-- Optional: Set a tabTrigger to define how to trigger the snippet -->
+	<tabTrigger>jqm-page</tabTrigger> 
+	<!-- Optional: Set a scope to limit where the snippet will trigger -->
+	<!-- <scope>source.python</scope> -->
+</snippet>

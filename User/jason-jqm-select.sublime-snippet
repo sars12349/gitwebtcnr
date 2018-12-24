@@ -1,0 +1,17 @@
+<snippet>
+	<content><![CDATA[
+<div data-role="fieldcontain">
+	<label for="${1:selectmenu}">天氣:</label>
+	<select name="${1:selectmenu}" id="${1:selectmenu}">
+		<option value="sun">晴</option>
+		<option value="cloud">陰</option>
+		<option value="rain">雨</option>
+		<option value="snow">雪</option>
+	</select>				
+</div>
+]]></content>
+	<!-- Optional: Set a tabTrigger to define how to trigger the snippet -->
+	<tabTrigger>jqm-select</tabTrigger>
+	<!-- Optional: Set a scope to limit where the snippet will trigger -->
+	<!-- <scope>source.python</scope> -->
+</snippet>

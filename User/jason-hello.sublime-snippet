@@ -1,0 +1,9 @@
+<snippet>
+	<content><![CDATA[
+Hello, ${1:this} is a ${2:snippet} Lorem  ${3:ipsum} dolor sit amet, consectetur adipisicing ${4:elit}. Doloremque reiciendis excepturi aperiam aliquam nihil necessitatibus placeat minus fugiat, ut ${5:dolor}. Hic delectus fuga quae error atque, cumque sit placeat dolores!
+]]></content>
+	<!-- Optional: Set a tabTrigger to define how to trigger the snippet -->
+	<tabTrigger>hello</tabTrigger>
+	<!-- Optional: Set a scope to limit where the snippet will trigger -->
+	<!-- <scope>source.python</scope> -->
+</snippet>

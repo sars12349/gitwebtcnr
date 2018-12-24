@@ -1,0 +1,12 @@
+<snippet>
+	<content><![CDATA[
+<div data-role="fieldcontain">
+	<label for="${1:username}">${3:使用者名稱:}</label>
+	<input type="${2:text}" name="${1:username}" id="${1:username}">
+</div>		
+]]></content>
+	<!-- Optional: Set a tabTrigger to define how to trigger the snippet -->
+	<tabTrigger>jqm-input</tabTrigger>
+	<!-- Optional: Set a scope to limit where the snippet will trigger -->
+	<!-- <scope>source.python</scope> -->
+</snippet>
