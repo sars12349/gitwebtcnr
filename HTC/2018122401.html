@@ -10,13 +10,24 @@
 	<script src="js/jquery.mobile-1.4.5.min.js"></script>
 
 	<script>
+
+		// $(function(){
+		// 	$("#height").bind("input propertychange",checkheight);
+		// });
+
+		// function checkheight(){
+		// 	if($("#height").val().length>2)
+		// 	{
+		// 		alert("自述過長");
+		// 	}
+		// }
 		//判斷身高數值
 		$(function(){
 			$("#height").bind("input propertychange",checkheight);
 		});
 
 		function checkheight(){
-			if($("#height").val().length>3){
+			if($("#height").val().length>2){
 				$("#alertheight").text("賣亂，最好是有這麼高");
 				$("#alertheight").css("background-color","green");
 				$("#alertheight").css("color","yellow");

@@ -1,0 +1,177 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+
+	<meta charset="UTF-8">
+	<meta name="viewport" content="device-width,initial-scale=1">
+	<title>Document</title>
+	<link rel="stylesheet" href="css/jquery.mobile-1.4.5.min.css">
+	<script src="js/jquery-2.1.0.min.js"></script>
+	<script src="js/jquery.mobile-1.4.5.min.js"></script>
+	<script>
+		// $(function(){
+		// 	$("#username").bind("input propertychange",showname);
+		// });		
+
+		// 	function showname(){
+		// 		if($("#username").val().length<6)
+		// 		{
+		// 			$("#abc").css("background-color",red);
+		// 			$("#abc").text("輸入字數太少了");
+		// 		}else if($("#username").val().length>6){
+		// 			$("#abc").css("background-color",green);
+		// 		}
+		// 	}
+		$(function(){
+			$("#aaa").bind("click",showedu);
+			//$("#sport").bind("click",exercise);
+			//$("#btnhobby").bind("click",hobby);
+			//$("#btnsex").bind("click",sex);
+			$("#username").bind("input propertychange",showname);
+		});			
+
+			function showedu(){
+				var myfavorite=[];
+				$.each($("input[name='abc']:checked"),function(){
+					myfavorite.push($(this).val());
+				});
+				alert("option you choose are:"+myfavorite.join(""));
+
+				var favoritesport=[];
+				$.each($("input[name='jason']:checked"),function(){
+					favoritesport.push($(this).val());
+				});
+				alert("我喜歡:"+favoritesport.join("/"));
+
+				var arrhobby=[];
+				$.each($("input[name='hobby']:checked"),function(){
+					arrhobby.push($(this).val());
+				});
+				alert("我的興趣是 "+arrhobby.join(","));
+
+				alert("我是 "+$("input[name='sex']:checked").val());
+
+				}
+
+		// function exercise(){
+			
+		// }
+
+		// function hobby(){
+			
+		// }
+
+		// function sex(){
+			
+		// }
+
+		function showname(){
+				if($("#username").val().length<6)
+				{
+					$("#home").css("background-color","green");
+					$("#abc").text("輸入字數太少了");
+				}else if($("#username").val().length>6){
+					$("#home").css("background-color","white");
+					$("#abc").text("");
+				}
+			}
+
+
+
+	</script>
+</head>
+<body>
+	<div data-role="page" id="home">
+		<div data-role="header">
+			
+		</div>
+
+		<div data="main" class="ui-content">
+
+
+			<div data-role="fieldcontain">
+				<label for="username">使用者名稱:</label>
+				<input type="text" name="username" id="username" class="myname">
+			</div>		
+			<div id="abc"><p>123</p></div>
+
+
+			<div data-role="fieldcontain">
+				<fieldset data-role="controlgroup" data-type="horizontal">
+					<legend>Option</legend>
+					<input type="checkbox" name="abc" id="checkbox1_0" class="custom" value="Option1" data-theme="b">
+					<label for="checkbox1_0">Option1</label>
+					<input type="checkbox" name="abc" id="checkbox1_1" class="custom" value="Option2" data-theme="b">
+					<label for="checkbox1_1">Option2</label>
+					<input type="checkbox" name="abc" id="checkbox1_2" class="custom" value="Option3" data-theme="b">
+					<label for="checkbox1_2">Option3</label>
+					<input type="checkbox" name="abc" id="checkbox1_3" class="custom" value="Option4" data-theme="b">
+					<label for="checkbox1_3">Option4</label>
+					<input type="checkbox" name="abc" id="checkbox1_4" class="custom" value="Option5" data-theme="b">
+					<label for="checkbox1_4">Option5</label>
+					<input type="checkbox" name="abc" id="checkbox1_5" class="custom" value="Option6" data-theme="b">
+					<label for="checkbox1_5">Option6</label>
+					<input type="checkbox" name="abc" id="checkbox1_6" class="custom" value="Option7" data-theme="b">
+					<label for="checkbox1_6">Option7</label>
+				</fieldset>
+			</div>
+
+			
+
+			<div data-role="fieldcontain">
+				<fieldset data-role="controlgroup" data-type="horizontal">
+					<legend>Option</legend>
+					<input type="checkbox" name="jason" id="cb1" class="custom" value="籃球" data-theme="b">
+					<label for="cb1">籃球</label>
+					<input type="checkbox" name="jason" id="cb2" class="custom" value="棒球" data-theme="b">
+					<label for="cb2">棒球</label>
+					<legend>Option</legend>
+					<input type="checkbox" name="jason" id="cb3" class="custom" value="羽球" data-theme="b">
+					<label for="cb3">羽球</label>
+					<input type="checkbox" name="jason" id="cb4" class="custom" value="桌球" data-theme="b">
+					<label for="cb4">桌球</label>
+				</fieldset>
+			</div>
+
+			<!-- <a href="" data-role="button" id="sport" data-theme="b">請選擇</a> -->
+
+			<div data-role="fieldcontain">
+				<fieldset data-role="controlgroup" data-type="horizontal">
+					<legend>Option</legend>
+					<input type="checkbox" name="hobby" id="chb1" class="custom" value="電影" data-theme="b">
+					<label for="chb1">電影</label>
+					<input type="checkbox" name="hobby" id="chb2" class="custom" value="戲劇" data-theme="b">
+					<label for="chb2">戲劇</label>
+					<input type="checkbox" name="hobby" id="chb3" class="custom" value="旅遊" data-theme="b">
+					<label for="chb3">旅遊</label>
+					<input type="checkbox" name="hobby" id="chb4" class="custom" value="攝影" data-theme="b">
+					<label for="chb4">攝影</label>
+				</fieldset>
+			</div>
+			<!-- <a href="" data-role="button" id="btnhobby" data-theme="b">請選擇喜好</a> -->
+
+
+			<div data-role="fieldcontain">
+				<fieldset data-role="controlgroup">					
+					<input type="radio" name="sex" id="radio1_0" value="badboy" data-theme="b"/>
+					<label for="radio1_0">男</label>
+					<input type="radio" name="sex" id="radio1_1" value="cutgirl" data-theme="b"/>
+					<label for="radio1_1">女</label>
+					<input type="radio" name="sex" id="radio1_2" value="中性"  data-theme="b"/>
+					<label for="radio1_2">中性</label>
+				</fieldset>
+			</div>
+			<!-- <a href="" data-role="button" id="btnsex" data-theme="b">請選擇性別</a> -->
+
+			<a href="" data-role="button" id="aaa" data-theme="b">你按了什麼</a>
+
+		</div>
+
+
+
+		<div data-role="footer" data-position="fixed">
+			
+		</div>
+	</div>	
+</body>
+</html>
