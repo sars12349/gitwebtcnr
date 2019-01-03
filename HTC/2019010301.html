@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="device-width,initial-scale=1">
+	<title>Document</title>
+	<link rel="stylesheet" href="css/jquery.mobile-1.4.5.min.css">
+	<script src="js/jquery-2.1.0.min.js"></script>
+	<script src="js/jquery.mobile-1.4.5.min.js"></script>
+
+	<script>
+		var flag=false;
+		$(function(){
+			$("#username").bind("input propertychange",function(){
+				if($("#username").val().length<3)
+				{
+					$("#alert").text("不得少於3個字");
+					$("#alert").css("background-color","red");
+					$("#alert").css("color","white");
+					flag=false;
+				}else{
+					$("#alert").text("");
+					$("#alert").css("background-color","white");
+					flag=true;
+				}
+			});
+
+			$("")
+		});
+
+
+
+	</script>
+</head>
+<body>
+	<div data-role="page" id="home">
+		<div data-role="header">
+			
+		</div>
+
+		<div data="main" class="ui-content">
+			
+			<div data-role="fieldcontain">
+				<label for="username">使用者名稱:</label>
+				<input type="text" name="username" id="username">
+			</div>
+
+			<div id="alert"></div>
+
+			<div data-role="fieldcontain">
+				<fieldset data-role="controlgroup" data-type="horizontal">
+					<legend>Option</legend>
+					<input type="checkbox" name="checkbox1" id="checkbox1_0" class="custom" value="高中">
+					<label for="checkbox1_0">高中</label>
+					<input type="checkbox" name="checkbox1" id="checkbox1_1" class="custom" value="大學">
+					<label for="checkbox1_1">碩士</label>
+					<input type="checkbox" name="checkbox1" id="checkbox1_2" class="custom" value="碩士">
+					<label for="checkbox1_2">碩士</label>
+					<input type="checkbox" name="checkbox1" id="checkbox1_3" class="custom" value="博士">
+					<label for="checkbox1_3">博士</label>
+				</fieldset>
+			</div>
+
+			<div class="ui-grid-a">
+				<div class="ui-block-a">
+					<a href="" data-role="button">取消</a>
+				</div>
+				<div class="ui-block-b">
+					<a href="" data-role="button" id="btnok">確定</a>
+				</div>
+			</div>
+			
+		</div>
+
+		<div data-role="footer" data-position="fixed">
+			
+		</div>
+	</div>	
+</body>
+</html>

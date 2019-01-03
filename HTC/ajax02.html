@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+
+	<meta charset="UTF-8">
+	<meta name="viewport" content="device-width,initial-scale=1">
+	<title>Document</title>
+	<link rel="stylesheet" href="css/jquery.mobile-1.4.5.min.css">
+	<script src="js/jquery-2.1.0.min.js"></script>
+	<script src="js/jquery.mobile-1.4.5.min.js"></script>
+	<script>
+		$(function(){
+			$("#send").bind("click",insert);
+		});
+
+		function insert(){
+			$.ajax({
+				type:"POST",
+				//url:"http://192.168.60.121/HTC/ajax02.php",
+				url:"http://192.168.60.120/mobileWeb/postdata.php",
+				data: {msl: $("#username").val(),msla: $("#height").val(),mslb: $("#weight").val()},
+				success:showdata,
+				error:function(data){
+					alert("系統錯誤!");
+				},
+			});
+		}
+		function showdata(data){
+			$('#back').html(data);
+		}
+	</script>
+</head>
+<body>
+	<div data-role="page" id="home">
+		<div data-role="header">
+			
+		</div>
+
+		<div data="main" class="ui-content">
+			<div data-role="fieldcontain">
+				<label for="username">使用者名稱:</label>
+				<input type="text" name="username" id="username">
+			</div>
+
+
+			<div data-role="fieldcontain">
+				<label for="height">身高:</label>
+				<input type="text" name="height" id="height">
+			</div>			
+			<div data-role="fieldcontain">
+				<label for="weight">體重:</label>
+				<input type="text" name="weight" id="weight">
+			</div>		
+			<a href="" data-role="button" data-theme="b" id="send">傳送值到PHP</a>
+			<div id="back"></div>				
+		</div>
+
+		<div data-role="footer" data-position="fixed">
+			
+		</div>
+	</div>	
+</body>
+</html>
