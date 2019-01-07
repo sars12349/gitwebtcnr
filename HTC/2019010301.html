@@ -25,9 +25,17 @@
 				}
 			});
 
-			$("")
+			$("#btnok").bind("click",input_result);
 		});
 
+		function input_result()
+
+		if(flag)
+		{
+			$.each($("input[name='sport_option']:checked"),function(){
+						myfavorite.push($(this).val());
+				});
+		}
 
 
 	</script>
