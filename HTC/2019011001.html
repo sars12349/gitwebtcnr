@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+
+	<meta charset="UTF-8">
+	<meta name="viewport" content="device-width,initial-scale=1">
+	<title>Document</title>
+	<link rel="stylesheet" href="css/jquery.mobile-1.4.5.min.css">
+	<script src="js/jquery-2.1.0.min.js"></script>
+	<script src="js/jquery.mobile-1.4.5.min.js"></script>
+	<script>
+		$(function(){
+			$.ajax({
+				type:"GET",
+				url:"http://192.168.60.120/mobileWeb/select_data.php",
+				dataType:"json",
+				success:show,
+				error:function(){
+					alert("資料錯誤!");
+				}
+			});
+		});
+
+		function show(data){
+			for(i=0;i<data.length;i++)
+			{
+				$("#msg").append(data[i].book_id+'<img src="image/'+data[i].image_name+'" alt="" width="49%">'+"<br>"+data[i].description+"<br>");
+			}			
+		}
+
+
+
+
+		// $(function(){
+		// 	$.ajax({
+		// 		type: "GET",
+		// 		url: "http://192.168.60.121/HTC/select_data.php",
+		// 		dataType:"json",
+		// 		success:show,
+		// 		error:function(){
+		// 			alert("資料錯誤!");
+		// 		}
+		// 	});
+		// });
+
+		// function show(data){
+		// 	alert(data.length);
+		// }
+		
+	</script>
+</head>
+<body>
+	<div data-role="page" id="home">
+		<div data-role="header">
+			
+		</div>
+
+		<div data="main" class="ui-content">
+			<div id="msg"></div>
+		</div>
+
+		<div data-role="footer" data-position="fixed">
+			
+		</div>
+	</div>	
+</body>
+</html>
