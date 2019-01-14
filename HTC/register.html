@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+
+	<meta charset="UTF-8">
+	<meta name="viewport" content="device-width,initial-scale=1">
+	<title>Document</title>
+	<link rel="stylesheet" href="css/jquery.mobile-1.4.5.min.css">
+	<script src="js/jquery-2.1.0.min.js"></script>
+	<script src="js/jquery.mobile-1.4.5.min.js"></script>
+	<script>	
+		var account_flag=false,pwd_flag = false,mail_flag = false,pwd_check_flag = false;
+
+		$(function(){
+
+			//監聽帳號
+			$("#account").bind("input propertychange", function(){
+				if($("#account").val().length<5){
+					$("#msg_account").text("不得少於5個字");
+					$("#msg_account").css("color","red");
+					$("#msg_account").css("background-color", "red");
+					$("#msg_account").css("color", "black");
+					account_flag = false;
+				}else if($("#account").val().length>5){
+					$("#msg_account").text("");
+					$("#msg_account").css("background-color", "white");
+					account_flag = true;
+				}
+			});
+
+			//監聽密碼
+			$("#pwd").bind("input propertychange",function(){
+				if($("#pwd").val().length<8){
+					$("#msg_pwd").text("不得少於8個字");
+					$("#msg_pwd").css("color","red");
+					$("#msg_pwd").css("background-color", "red");
+					$("#msg_pwd").css("color", "black");
+					pwd_flag = false;
+				}else if($("#pwd").val().length>8){
+					$("#msg_pwd").text("");
+					$("#msg_pwd").css("background-color", "white");
+					pwd_flag = true;
+				}
+			});
+
+			//監聽密碼確認
+			$("#pwd_check").bind("input propertychange",function(){
+				if($("#pwd_check").val()!=$("#pwd").val()){
+					$("#msg_pwd_check").text("密碼輸入不相同");
+					$("#msg_pwd_check").css("color","red");
+					$("#msg_pwd_check").css("background-color", "red");
+					$("#msg_pwd_check").css("color", "black");
+					pwd_check_flag = false;
+				}else if($("#pwd_check").val()==$("#pwd").val()){
+					$("#msg_pwd_check").text("");
+					$("#msg_pwd_check").css("background-color", "white");
+					pwd_check_flag = true;
+				}
+			});
+
+			//監聽mail
+			$("#mail").bind("input propertychange",function(){
+				if($("#mail").val().length<10){
+					$("#msg_mail").text("不得少於10個字");
+					$("#msg_mail").css("color","red");
+					$("#msg_mail").css("background-color", "red");
+					$("#msg_mail").css("color", "black");
+					mail_flag = false;
+				}else if($("#mail").val().length>10){
+					$("#msg_mail").text("");
+					$("#msg_mail").css("background-color", "white");
+					mail_flag = true;
+				}
+			});
+
+			//按鈕監聽
+			$("#btn_send").bind("click",send);
+		});
+
+		function send(){
+
+			if(account_flag&&pwd_flag&&pwd_check_flag&&mail_flag){
+
+				if(confirm("確定新增帳號??")){
+					$.ajax({
+						type:"POST",
+						url:"http://192.168.60.121/register/register.php",
+						data:{account:$("#account").val(), pwd: $("#pwd").val(),mail: $("#mail").val()},
+						success:show,
+						error:function(){
+							alert("error");
+						}
+					});
+				}//if end
+
+			}else{
+				alert("輸入欄位請符合規定, 請依照紅色區塊提示輸入正確訊息!!");
+			}
+
+			
+		}
+
+		function show(data){
+			alert(data);
+		}
+
+	</script>
+
+</head>
+<body>
+	<div data-role="page" id="home">
+		<div data-role="header" data-theme="b">
+			<h2>帳號申請</h2>
+		</div>
+
+		<div data="main" class="ui-content">
+			<div data-role="fieldcontain">
+				<label for="account">帳號:</label>
+				<input type="text" name="account" id="account">
+			</div>	
+
+			<div id="msg_account"></div>
+
+			<div data-role="fieldcontain">
+				<label for="pwd">密碼:</label>
+				<input type="text" name="pwd" id="pwd">
+			</div>
+
+			<div id="msg_pwd"></div>
+
+			<div data-role="fieldcontain">
+				<label for="pwd_check">密碼確認:</label>
+				<input type="text" name="pwd_check" id="pwd_check">
+			</div>
+			<div id="msg_pwd_check"></div>		
+
+			<div data-role="fieldcontain">
+				<label for="mail">電子郵件:</label>
+				<input type="text" name="mail" id="mail">
+			</div>
+			<div id="msg_mail"></div>
+
+			<a href="" data-role="button" data-theme="b" id="btn_send">
+				送出
+			</a>					
+		</div>
+
+		<div data-role="footer" data-position="fixed">
+			
+		</div>
+	</div>	
+</body>
+</html>

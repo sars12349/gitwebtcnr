@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+
+	<meta charset="UTF-8">
+	<meta name="viewport" content="device-width,initial-scale=1">
+	<title>Document</title>
+	<link rel="stylesheet" href="css/jquery.mobile-1.4.5.min.css">
+	<script src="js/jquery-2.1.0.min.js"></script>
+	<script src="js/jquery.mobile-1.4.5.min.js"></script>
+	<script>
+		$(function(){
+			$("#btn_send").bind("click",send);
+			//$("#btn_cancel").bind("click",cancel);
+		});
+
+		function send(){
+			if(confirm("確定新增資料")){
+				$.ajax({
+					type:"POST",
+					url:"http://192.168.60.121/HTC/putdata_product.php",
+					data:{img: $("#img").val(),des:$("#des").val()},
+					success:show,
+					error:function(){
+						alert("資料傳輸失敗");
+					}
+				});
+			}//if end
+			
+		}
+
+		function show(data){
+			alert(data);
+		}
+	</script>
+</head>
+<body>
+	<div data-role="page" id="home">
+		<div data-role="header" data-theme="b">
+			<h4>傳送資料進資料庫</h4>
+		</div>
+
+		<div data="main" class="ui-content">
+			<div data-role="fieldcontain">
+				<label for="img">圖片名稱:</label>
+				<input type="text" name="img" id="img">
+			</div>	
+			<div data-role="fieldcontain">
+				<label for="des">敘述:</label>
+				<input type="text" name="des" id="des">
+			</div>
+
+			<div class="ui-grid-a">
+				<div class="ui-block-a">
+					<a href="" data-role="button" id="btn_cancel" data-theme="b">取消</a>
+				</div>
+				<div class="ui-block-b">
+					<a href="" data-role="button" id="btn_send" data-theme="b">傳送</a>	
+				</div>
+			</div>
+			
+					
+		</div>
+
+		<div data-role="footer" data-position="fixed">
+			
+		</div>
+	</div>	
+</body>
+</html>
